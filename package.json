@@ -1,0 +1,16 @@
+{
+  "name": "tableDataREST",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node dist/tableDataRest.js",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^2.5.2",
+    "typescript-rest": "^1.1.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.1"
+  }
+}

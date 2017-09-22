@@ -88,7 +88,7 @@ class TableDataService {
                 return symbol.toUpperCase();
             });
         }
-        loadSymbols();
+        elements = loadSymbols();
         return elements;
     }
 }
@@ -123,7 +123,9 @@ function loadSymbols() {
     console.log(elements.length + ' elements loaded at ' + new Date());
     //ref.set(elements);
 
-    setTimeout(loadSymbols, 1000 * 60 * 60 * 24); // Reload once a day
+    return elements;
+
+    // setTimeout(loadSymbols, 1000 * 60 * 60 * 24); // Reload once a day
 }
 
 // Load the initial data

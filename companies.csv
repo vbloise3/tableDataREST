@@ -1,6 +1,6 @@
 Name,Position,Weight,Symbol
 Hydrogen,1,1.0079,H
-Helium',2,4.0026,He
+Helium,2,4.0026,He
 Lithium,3,6.941,Li
 Beryllium,4,9.0122,Be
 Boron,5,10.811,B
@@ -20,3 +20,4 @@ Argon,18,39.948,Ar
 Potassium,19,39.0983,K
 Calcium,20,40.078,Ca
 Boreum,21,1.098,Bo
+Arsenic,22,74.9216,As

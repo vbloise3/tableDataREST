@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const typescript_rest_1 = require("typescript-rest");
 // Load config
@@ -40,7 +39,8 @@ __decorate([
     __metadata("design:returntype", String)
 ], HelloService.prototype, "sayHello", null);
 HelloService = __decorate([
-    typescript_rest_1.Path("/hello")
+    typescript_rest_1.Path("/hello"),
+    __metadata("design:paramtypes", [])
 ], HelloService);
 let TableDataService = class TableDataService {
     getTableData(name) {
@@ -77,7 +77,8 @@ __decorate([
     __metadata("design:returntype", String)
 ], TableDataService.prototype, "getTableData", null);
 TableDataService = __decorate([
-    typescript_rest_1.Path("/tableData")
+    typescript_rest_1.Path("/tableData"),
+    __metadata("design:paramtypes", [])
 ], TableDataService);
 let ElementDataService = class ElementDataService {
     getElementsData(symbols) {
@@ -87,7 +88,7 @@ let ElementDataService = class ElementDataService {
                 return symbol.toUpperCase();
             });
         }
-        loadSymbols();
+        elements = loadSymbols();
         return elements;
     }
 };
@@ -100,16 +101,17 @@ __decorate([
     __metadata("design:returntype", Array)
 ], ElementDataService.prototype, "getElementsData", null);
 ElementDataService = __decorate([
-    typescript_rest_1.Path("/elementData")
+    typescript_rest_1.Path("/elementData"),
+    __metadata("design:paramtypes", [])
 ], ElementDataService);
 let app = express();
 typescript_rest_1.Server.buildServices(app);
 app.use(cors());
-app.set('port', (process.env.PORT || 3000));
-app.set('projectId', (process.env.PROJECT_ID || ''));
-app.set('clientEmail', (process.env.CLIENT_EMAIL || ''));
-app.set('privateKey', (process.env.PRIVATE_KEY || ''));
-app.set('firebaseDB', (process.env.FIREBASE_DB || ''));
+app.set('port', (3000));
+app.set('projectId', (''));
+app.set('clientEmail', (''));
+app.set('privateKey', (''));
+app.set('firebaseDB', (''));
 function getRandomInt(min, max) {
     return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
@@ -127,7 +129,8 @@ function loadSymbols() {
     });
     console.log(elements.length + ' elements loaded at ' + new Date());
     //ref.set(elements);
-    setTimeout(loadSymbols, 1000 * 60 * 60 * 24); // Reload once a day
+    return elements;
+    // setTimeout(loadSymbols, 1000 * 60 * 60 * 24); // Reload once a day
 }
 // Load the initial data
 loadSymbols();

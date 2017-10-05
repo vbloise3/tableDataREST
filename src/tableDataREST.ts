@@ -97,11 +97,11 @@ let app: express.Application = express();
 Server.buildServices(app);
 
 app.use(cors());
-app.set('port', (process.env.PORT || 3000));
-app.set('projectId', (process.env.PROJECT_ID || ''));
-app.set('clientEmail', (process.env.CLIENT_EMAIL || ''));
-app.set('privateKey', (process.env.PRIVATE_KEY || ''));
-app.set('firebaseDB', (process.env.FIREBASE_DB || ''));
+app.set('port', (3000));
+app.set('projectId', (''));
+app.set('clientEmail', (''));
+app.set('privateKey', (''));
+app.set('firebaseDB', (''));
 
 function getRandomInt(min, max) {
     return (Math.floor(Math.random() * (max - min + 1)) + min);
